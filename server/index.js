@@ -1,3 +1,8 @@
+
+import dotenv from 'dotenv';
+
+// Load environment variables from the .env file
+dotenv.config();
 import express from 'express'
 import cors from 'cors'
 import userRouts from './Router/Users.js'
@@ -8,7 +13,21 @@ import listEndpoints  from 'express-list-endpoints';
 const app = express();
 app.use(express.json()); 
 
-app.use(cors({ origin: "http://localhost:3000" }));
+// CORS configuration: Allow dynamic domain based on environment (dev vs prod)
+
+
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production' 
+    ? 'https://your-react-app.netlify.app'  // Production React app URL
+    : 'http://localhost:3000',               // Development React app URL
+  methods: ['GET', 'POST'],
+  credentials: true
+};
+
+
+console.log (corsOptions)
+//app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors(corsOptions));
 
 
 // Set the router endpoint
@@ -20,8 +39,10 @@ app.get ('/', (req,res)=> {
   res.send ("The main server Running")
 })
 
-console.log(listEndpoints(app)); 
+//console.log(listEndpoints(app)); 
 
-app.listen (3002, ()=>{
+const port = process.env.PORT || 3002;
+
+app.listen (port, ()=>{
   console.log ("Server runnnig on port 3002")
 })

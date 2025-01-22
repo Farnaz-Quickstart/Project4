@@ -12,6 +12,7 @@ npm init
 npm install express mysql2 cors
 npm install -g nodemon
 npm install express-list-endpoints
+npm install dotenv
 
 
 ## Database Scripts
