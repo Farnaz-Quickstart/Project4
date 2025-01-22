@@ -38,3 +38,6 @@ Click "Create Web Service".
 Render will now build and deploy your app.
 You’ll get a URL like https://your-app-name.onrender.com for your back-end.
 cd server && npm install
+
+
+# MySQL Database Hosting on https://planetscale.com/
