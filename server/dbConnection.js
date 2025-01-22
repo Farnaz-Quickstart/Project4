@@ -11,7 +11,7 @@ dotenv.config();  // Load .env variables
 // })
 
 
-const db = mysql.createConnection({
+const dataBase = mysql.createConnection({
   host: process.env.MYSQL_HOST,      // 'roundhouse.proxy.rlwy.net'
   user: process.env.MYSQL_USER,      // 'root'
   password: process.env.MYSQL_PASSWORD, // 'IBPfvSDukookFeBZPSEaSfBaynoMTErd'
