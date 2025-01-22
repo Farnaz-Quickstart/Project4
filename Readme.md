@@ -91,5 +91,31 @@ You’ll get a URL like https://your-app-name.onrender.com for your back-end.
 cd server && npm install
 
 
-# MySQL Database Hosting 
-1-Create Account on planetscale.com
+# Deploy MySQL on railway 
+1- Create Account on railway.com with your GitHub account.
+2- Replace the local connection details with the remote database's connection credentials.
+```
+const db = mysql.createConnection({
+  host: 'localhost', // Change this to the remote host (provided by your hosting platform)
+  user: 'root', // Change this to the username provided by the hosting platform
+  password: 'IBPfvSDukookFeBZPSEaSfBaynoMTErd', // Change this to the password provided by the hosting platform
+  database: 'railway' // Change this to the database name you created on the remote service
+});
+```
+3- Replace with Remote Database Details. For Railway you'll typically be provided with the following credentials:
+host: This is the database endpoint (e.g., your-database-id.db.us-east-1.rds.amazonaws.com or database_name.clearDB.com).
+user: The username for your database (e.g., admin or root).
+password: The password for your database.
+database: The name of your database (e.g., my_database).
+
+4- Use Environment Variables for Better Security: It's good practice to store sensitive information (like database credentials) in environment variables instead of hardcoding them in your code. Here’s how you can update your code to use .env files. Create a .env file in your server folder with the following contents:
+```
+DB_HOST=your-database-host
+DB_USER=your-database-username
+DB_PASSWORD=your-database-password
+DB_NAME=your-database-name
+```
+
+- npm install dotenv
+
+
