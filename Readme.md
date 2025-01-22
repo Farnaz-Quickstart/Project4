@@ -49,11 +49,19 @@ CREATE TABLE Answers (
 ```
 /* /index.html 200
 ```
-
-- cd client
+Then in the same react folder build you code. 
 - npm run build
 - npx serve -s build
 
+## Step 2: Create a Netlify Account
+Go to Netlify and sign up. You can use your email, GitHub, or GitLab account.
+Once signed in, you'll see the Netlify Dashboard
+
+## Step 3: Deploy your app
+- Compress the build/ folder into a .zip file.
+- Go to the Netlify dashboard and click "Add New Site" > "Deploy manually".
+- Drag and drop the .zip file or the build/ folder.
+- Netlify will automatically upload and host your app. It will give you a live URL like https://your-app-name.netlify.app.
 
 # Deploy Backend (Express) on Render
 - Signup free on  Netlify.com
