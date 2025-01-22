@@ -1,21 +1,17 @@
-# Client
 ## Client Dependencies
-npm install react-bootstrap bootstrap
-npm install react-router-dom
-npm install axios
-
-
-# Server:
-npm init
+- npm install react-bootstrap bootstrap
+- npm install react-router-dom
+- npm install axios
 
 ## Server Dependencies
-npm install express mysql2 cors
-npm install -g nodemon
-npm install express-list-endpoints
-npm install dotenv
+- npm install express mysql2 cors
+- npm install -g nodemon
+- npm install express-list-endpoints
+- npm install dotenv
 
 
 ## Database Scripts
+```
 use QAnswer;
 
 
@@ -41,4 +37,51 @@ CREATE TABLE Answers (
     FOREIGN KEY (question_id) REFERENCES Questions(question_id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
 );
-# Project4
+```
+
+
+
+# Deploy Frontend on Netlify
+## Step 1: Add a _redirects File
+- Go to your React project's public folder.
+- Inside the public folder, create a new file called _redirects.
+- Add the following line to the _redirects file:
+```
+/* /index.html 200
+```
+
+- cd client
+- npm run build
+- npx serve -s build
+
+
+# Deploy Backend (Express) on Render
+- Signup free on  Netlify.com
+- Sign Up for Render (GitHub, GitLab, or email)
+- Create a New Web Service:
+- From the Render dashboard, click on "New +" and select "Web Service".
+- Connect GitHub Repository.
+- Select GitHub and authorize Render to access your repositories.
+- Pick the repository containing your Express app.
+- In the build settings, set:
+- Build Command: cd server && npm install
+- Start Command: cd server && node index.js
+Render will automatically detect that it’s a Node.js app.
+
+## Set Environment Variables:
+If your Express app uses any environment variables (e.g., PORT, DB_URL), go to Environment settings and add them.
+- MYSQL_DATABASE
+- MYSQL_HOST
+- MYSQL_PASSWORD
+- MYSQL_PORT
+- MYSQL_USER
+- NODE_ENV
+- PORT
+Deploy Your App:
+
+You’ll get a URL like https://your-app-name.onrender.com for your back-end.
+cd server && npm install
+
+
+# MySQL Database Hosting 
+1-Create Account on planetscale.com

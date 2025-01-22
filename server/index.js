@@ -44,5 +44,5 @@ app.get ('/', (req,res)=> {
 const port = process.env.PORT || 3002;
 
 app.listen (port, ()=>{
-  console.log ("Server runnnig on port 3002")
+  console.log ("Server runnnig on port", port)
 })
